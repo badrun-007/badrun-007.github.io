@@ -505,7 +505,7 @@
 	  		function init(){
 	  			startTime();
 	  			stopOpening();
-	  			add='<div class="cc">copyright Andika Sujanadi @2020</div>';
+	  			add='<div class="cc"></div>';
 	  			$('body').append(add);
 	  			if(localStorage.getItem("nama") != null && localStorage.getItem("checked") == "yoi"){
 		  			namaku=localStorage.getItem("nama");
@@ -810,11 +810,7 @@
 					else if(h>4) document.querySelector('img').src="wp2.png";
 					else         document.querySelector('img').src="wp1.png";
 				}
-				if(window.btoa($('.cc').text())!='Y29weXJpZ2h0IEFuZGlrYSBTdWphbmFkaSBAMjAyMA=='){
-					if(jalan) $('.container').remove();
-					if(jalan) $('img').remove();
-					jalan=true;
-				}
+				
 			}
 			function tulis(waktu,ucapan){
 				$("#spannama2").text('Selamat '+waktu+' '+localStorage.getItem("nama")+', '+ucapan+'.');
