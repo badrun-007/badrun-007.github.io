@@ -418,7 +418,7 @@
 			<source src="opening.mp3" type="audio/mpeg">
 			Your browser does not support the audio element.
 		</audio>
-		
+		<div class="preload">PLEASE WAIT</div>
 		<div class="vidcont myoverlay">
 			<div class="divvideo">
 				<video id="myVideo" width="100%" height="100%">
@@ -468,7 +468,7 @@
 					<div class="mymax"></div>
 				</div>
 				<div class="myheader" id="mywindowheader">
-					Hi <span id="spannama"></span>
+					halo <span id="spannama"></span>
 				</div>
 				<div class="mybody">
 					<div class="mytitle">
@@ -485,7 +485,7 @@
 				<div class="myresize"></div>
 			</div>
 		</div>
-		
+		<span style="position: absolute; text-align: center; line-height: 100vh; width: 100vw; z-index:-10;">jangan dijual bos</span>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	  	<script type="text/javascript">
 	  		/*
@@ -497,7 +497,27 @@
 	  		http://stackoverflow.com/questions/8960193/how-to-make-html-element-resizable-using-pure-javascript/33523184
 
 	  		*/
-	  		
+	  		namaku=localStorage.getItem("nama");
+			blur="true"; 
+			$(window).on('load',function(){
+				$('.preload').css('background','#00000000').css('color','#FFFFFF00').css('backdrop-filter','blur(0px)').text('SELESAI').css('z-index','-2');
+			});
+	  		function init(){
+	  			startTime();
+	  			stopOpening();
+	  			add='<div class="cc">copyright Andika Sujanadi @2020</div>';
+	  			$('body').append(add);
+	  			if(localStorage.getItem("nama") != null && localStorage.getItem("checked") == "yoi"){
+		  			namaku=localStorage.getItem("nama");
+		  			myclock();
+		  		}else if(localStorage.getItem("nama") != null){
+		  			mystart();
+		  		}
+		  		if(localStorage.getItem("blur")=="true"){
+		  			wpblur();
+		  		}
+
+	  		}
 	  		$('img').on('dragstart', function(event) { event.preventDefault(); });
 	  		dragElement(document.getElementById("mywindow"));
 			function dragElement(elmnt) {
